@@ -5,13 +5,13 @@ import {todos} from "../../database/database";
 
 const Card =()=>{
     return(
-        <div>
+        <div className="card">
             {todos.map(todo => (
-                <div>
-                    <h3>{todo.title}</h3>
-                    <p>{todo.description}</p>
-                    <button>delete</button>
-                    <button>Edit</button>
+                <div key={todo.id}>
+                    <h3 className="card_title">{todo.title}</h3>
+                    <p className="card_description">{todo.description}</p>
+                    <button className="btn_delete">delete</button>
+                    <button className="btn_edit">Edit</button>
                 </div>
             ))}
             
