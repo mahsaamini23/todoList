@@ -23,13 +23,13 @@
     align-items: baseline;
     align-self: baseline;
     gap:30px;
+    padding-top: 10px;
+    font-size: 15px;
 }
 .card_btn{
     display: flex;
     justify-content: baseline;
     gap:10px;
+    padding-top:5px;
 }
-/* .btn_delete , .btn_edit{
-    background-color: orange;
-    color :orange;
-} */
+
