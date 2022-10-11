@@ -1,6 +1,21 @@
 .container_search{
     display: flex;
     align-content: flex-start;
-    justify-content: center;
+    justify-content:flex-start;
     align-items: baseline;
+    border: 1px solid grey;
+    background-color: orange;
+    width:78%;
+    margin:0 auto;
+    gap:10px;
+    padding:5px 10px;
+}
+.search_input{
+    width:200px;
+    border: none;
+    background-color: white;
+    padding:8px 300px;
+}
+.box_icon{
+    align-self:center;
 }
