@@ -1,7 +1,9 @@
 import React from "react";
 import {todos} from "../../database/database";
+import Button from "../button/Button";
 import "./card.style.css";
-
+import { ReactComponent as Delete } from "../../assets/svg/delete_icon.svg";
+import { ReactComponent as Edit } from "../../assets/svg/edit_icon.svg";
 
 const Card =()=>{
     return(
@@ -15,8 +17,8 @@ const Card =()=>{
                     <p className="card_description">{todo.description}</p>
                     <p>status</p>
                     <div className="card_btn">
-                        <button className="btn_delete">delete</button>
-                        <button className="btn_edit">Edit</button>
+                        <button className="btn_delete"><Delete/></button>
+                        <button className="btn_edit"><Edit/></button>
                     </div>
                 </div>
             ))}
