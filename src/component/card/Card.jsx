@@ -17,6 +17,8 @@ const Card =()=>{
                     <p className="card_description">{todo.description}</p>
                     <p>status</p>
                     <div className="card_btn">
+                        <Button/>
+                        <Button/>
                         <button className="btn_delete"><Delete/></button>
                         <button className="btn_edit"><Edit/></button>
                     </div>
