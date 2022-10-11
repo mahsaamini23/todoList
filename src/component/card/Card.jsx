@@ -17,10 +17,8 @@ const Card =()=>{
                     <p className="card_description">{todo.description}</p>
                     <p>status</p>
                     <div className="card_btn">
-                        <Button><Delete/></Button>
-                        <Button><Edit/></Button>
-                        {/* <button className="btn_delete"></button> */}
-                        {/* <button className="btn_edit"></button> */}
+                        <Button className="btn"><Delete className="btn_delete"/></Button>
+                        <Button  className="btn"><Edit  className="btn_edit"/></Button>
                     </div>
                 </div>
             ))}
