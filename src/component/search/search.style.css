@@ -23,7 +23,7 @@
     align-self:center;
 }
 
-.filter_btn{
+.search_filter{
     display:flex;
     justify-content: flex-start;
     gap:3px;

@@ -16,7 +16,7 @@ const Search = () => {
                 </div>
                 <button className="btn_add">Add to do</button>
             </div>
-            <div className="filter_btn">
+            <div className="search_filter">
                 {filterBtn.map(item => (
                     <Button key={item.id}>
                         {item.title}
