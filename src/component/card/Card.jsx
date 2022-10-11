@@ -1,14 +1,19 @@
 import React from "react";
+import {todos} from "../../database/database";
+
 
 const Card =()=>{
     return(
         <div>
-            <div>
-                <h3>buy milk</h3>
-                <p>description</p>
-                <button>delete</button>
-                <button>Edit</button>
-            </div>
+            {todos.map(todo => (
+                <div>
+                    <h3>{todo.title}</h3>
+                    <p>{todo.description}</p>
+                    <button>delete</button>
+                    <button>Edit</button>
+                </div>
+            ))}
+            
         </div>
     )
 }
