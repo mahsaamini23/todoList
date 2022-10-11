@@ -1,9 +1,10 @@
 .form{
+    margin: 0 auto;
+    width:90%;
     display:flex;
     justify-content:space-between;
     align-content: center;
-    width:75%;
-    margin: 0 auto;
+    align-items: center;
     background-color: rgb(243, 237, 237);
     padding:20px 22px;
     margin-top:15px;

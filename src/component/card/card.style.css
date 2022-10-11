@@ -1,9 +1,10 @@
 .container_card{
     margin:0 auto;
-    width:75%;
+    width:90%;
     display:flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .card{

@@ -5,7 +5,7 @@ import Form from "../../component/form/Form";
 
 const Home = ()=>{
     return(
-        <div>
+        <div className="home">
             <Search/>
             <Form/>
             <Card/>
