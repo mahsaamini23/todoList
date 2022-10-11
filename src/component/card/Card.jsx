@@ -8,11 +8,16 @@ const Card =()=>{
         <div className="container_card">
             {todos.map(todo => (
                 <div key={todo.id} className="card">
-                    <input type="checkbox"/>
-                    <h3 className="card_title">{todo.title}</h3>
+                    <div className="card_title">
+                        <input type="checkbox"/>
+                        <h3 className="title">{todo.title}</h3>
+                    </div>
                     <p className="card_description">{todo.description}</p>
-                    <button className="btn_delete">delete</button>
-                    <button className="btn_edit">Edit</button>
+                    <p>status</p>
+                    <div className="card_btn">
+                        <button className="btn_delete">delete</button>
+                        <button className="btn_edit">Edit</button>
+                    </div>
                 </div>
             ))}
         </div>
