@@ -5,6 +5,7 @@ import Button from "../button/Button";
 
 const Search = ({setSearch}) => {
     const filterBtn = [{id:1, title:"All"},{id:2, title:"To DO"},{id:3, title:"Not To DO"}]
+    
     return(
         <div className="search">
             <div className="container_search">
@@ -14,7 +15,6 @@ const Search = ({setSearch}) => {
                 <div>
                     <input type="search" className="search_input" onChange={(e)=>setSearch(e.target.value)}/>
                 </div>
-                <button className="btn_add">Add to do</button>
             </div>
             <div className="search_filter">
                 {filterBtn.map(item => (
