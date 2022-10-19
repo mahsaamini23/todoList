@@ -5,7 +5,7 @@ const Form = ({form , setForm, todo, setTodo , mode, setMode}) =>{
     const handelSubmit = (e)=>{
         e.preventDefault();
         if(mode){
-            setTodo([...todo , {id:Math.floor(Math.random()*1000), title:form.title , description:form.description , status:"not to do"}]);
+            setTodo([...todo , {id:Math.floor(Math.random()*1000), title:form.title , description:form.description , status:false}]);
 
         }else{
             setTodo(todo.map(item=> item.id === form.id ? form: item));

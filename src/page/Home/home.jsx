@@ -8,7 +8,7 @@ const Home = ()=>{
     const [filter, setFilter] = useState("All")
 
     const [search,setSearch] = useState("");
-    const [form,setForm] = useState({id:"", title:"" ,description:"", status:"not to do"})
+    const [form,setForm] = useState({id:"", title:"" ,description:"", status:false}) 
     const [todo,setTodo] = useState(todos);
     const [mode ,setMode] = useState(true);
 

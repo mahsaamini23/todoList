@@ -1,22 +1,29 @@
-import React from "react";
+import React,{useState} from "react";
 import Button from "../button/Button";
 import "./card.style.css";
 import { ReactComponent as Delete } from "../../assets/svg/delete_icon.svg";
 import { ReactComponent as Edit } from "../../assets/svg/edit_icon.svg";
- 
+import { useSelector, useDispatch } from "react-redux";
+import {AddItem, DeleteItem, EditItem, CheckItem} from "../../features/todo/todoSlice";
 
 const Card =({search,todo,setTodo,setForm,setMode,filter})=>{
-    const handelDelete = (id) =>{
-        console.log(id);
-        setTodo(todo.filter(item => item.id !== id ))
-    } 
+    const card = useSelector((state)=>state.todo);
+    console.log(card);
+    const dispatch = useDispatch();
+    const [check , setCheck] = useState(false)
+
     const handelEdit = (item) =>{
+        dispatch(EditItem(item))
         setMode(false);
         setForm(item);
     }
+    
+    const handelDelete = (id) =>{
+        dispatch(DeleteItem(id))
+    }
 
-    const handelCheck = (id) => {
-        setTodo(todo.map(item=>item.id===id ? {...item , status:!item.status} : item));
+    const handelCheck = (id)=>{
+        dispatch(CheckItem(id))
     }
  
     return(
@@ -25,14 +32,14 @@ const Card =({search,todo,setTodo,setForm,setMode,filter})=>{
             .map(item => (
                 <div key={item.id} className="card">
                     <div className="card_title">
-                        <input type="checkbox" onClick={()=>handelCheck(item.id)}/>
+                        <input type="checkbox"  onClick={()=>handelCheck(item.id)} />
                         <h3 className="title">{item.title}</h3>
                     </div>
                     <p className="card_description">{item.description}</p>
-                    <p >{item.status ?"not to do":"to do"}</p>
+                    <p>{item.state ? "To do" : "Not to do"}</p>
                     <div className="card_btn">
                         <Button className="btn" onClick={()=>handelDelete(item.id)}><Delete className="btn_delete"/></Button>
-                        <Button  className="btn" onClick={()=>handelEdit(item.id)}><Edit  className="btn_edit"/></Button>
+                        <Button  className="btn" onClick={()=>handelEdit(item)}><Edit  className="btn_edit"/></Button>
                     </div>
                 </div>
             ))}
