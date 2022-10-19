@@ -6,11 +6,11 @@ import { ReactComponent as Edit } from "../../assets/svg/edit_icon.svg";
 import { useSelector, useDispatch } from "react-redux";
 import {AddItem, DeleteItem, EditItem, CheckItem} from "../../features/todo/todoSlice";
 
-const Card =({search,todo,setTodo,setForm,setMode,filter})=>{
+
+const Card =({search,setForm,setMode,filterItem})=>{
     const card = useSelector((state)=>state.todo);
-    console.log(card);
     const dispatch = useDispatch();
-    const [check , setCheck] = useState(false)
+
 
     const handelEdit = (item) =>{
         dispatch(EditItem(item))
@@ -28,7 +28,7 @@ const Card =({search,todo,setTodo,setForm,setMode,filter})=>{
  
     return(
         <div className="container_card">
-            {todo.filter(t => search === "" ? t : t.title.toLowerCase().includes(search.toLowerCase())&&(filter==="All" ? true : t.status === filter))
+            {card.filter(t => search === "" ? t : t.title.toLowerCase().includes(search.toLowerCase())&&(filterItem==="All" ? true : t.status === filterItem))
             .map(item => (
                 <div key={item.id} className="card">
                     <div className="card_title">
@@ -36,7 +36,7 @@ const Card =({search,todo,setTodo,setForm,setMode,filter})=>{
                         <h3 className="title">{item.title}</h3>
                     </div>
                     <p className="card_description">{item.description}</p>
-                    <p>{item.state ? "To do" : "Not to do"}</p>
+                    <p>{item.status ? "To do" : "Not to do"}</p>
                     <div className="card_btn">
                         <Button className="btn" onClick={()=>handelDelete(item.id)}><Delete className="btn_delete"/></Button>
                         <Button  className="btn" onClick={()=>handelEdit(item)}><Edit  className="btn_edit"/></Button>

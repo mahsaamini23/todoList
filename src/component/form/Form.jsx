@@ -1,18 +1,28 @@
 import React from "react";
 import "./form.style.css";
+import { useSelector, useDispatch } from "react-redux";
+import {AddItem , EditItem} from "../../features/todo/todoSlice";
 
 const Form = ({form , setForm, todo, setTodo , mode, setMode}) =>{
+    const card = useSelector((state) => state.todo)
+    const dispatch = useDispatch();
+
     const handelSubmit = (e)=>{
         e.preventDefault();
         if(mode){
-            setTodo([...todo , {id:Math.floor(Math.random()*1000), title:form.title , description:form.description , status:false}]);
-
+            dispatch(AddItem(form))
         }else{
-            setTodo(todo.map(item=> item.id === form.id ? form: item));
+            dispatch(EditItem(form))
         }
         setForm({id:"" , title:"" , description:"" , status:""})
         setMode(true)
+        // if(mode){
+        //     setTodo([...todo , {id:Math.floor(Math.random()*1000), title:form.title , description:form.description , status:false}]);
+        // }else{
+        //     setTodo(todo.map(item=> item.id === form.id ? form: item));
+        // }
     }
+
     const handelChange =(e)=>{
         setForm({...form , [e.target.name] : e.target.value});
     }
